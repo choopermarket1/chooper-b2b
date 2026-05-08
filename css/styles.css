@@ -508,15 +508,17 @@ h1, h2, h3, h4, p, blockquote, li {
   max-width: 1100px;
   margin: 0 auto;
 }
+
+/* — Hero card: 사진 풀폭 위, 텍스트 아래 — */
 .medal-hero {
   grid-column: 1 / -1;
-  display: grid !important;
-  grid-template-columns: 1fr 1.4fr !important;
-  gap: 56px !important;
   background: linear-gradient(135deg, #1C1614 0%, #2A1F1A 100%);
   color: var(--bg);
   border: 1px solid rgba(212, 181, 131, .25) !important;
-  padding: 56px 56px !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
   position: relative;
   overflow: hidden;
 }
@@ -527,17 +529,27 @@ h1, h2, h3, h4, p, blockquote, li {
   width: 380px; height: 380px;
   background: radial-gradient(circle, rgba(212, 181, 131, .25), transparent 70%);
   filter: blur(80px);
+  z-index: 0;
 }
 .medal-hero .medal-img {
-  background: rgba(255, 252, 242, .04) !important;
-  border-color: rgba(212, 181, 131, .22) !important;
-  width: 100%;
-  height: 240px;
+  background: rgba(255, 252, 242, .96) !important;
+  border: none !important;
+  width: 100% !important;
+  height: 320px !important;
+  border-radius: 0 !important;
+  padding: 24px !important;
   flex: none;
+  position: relative;
+  z-index: 1;
+}
+.medal-hero .medal-text {
+  padding: 32px 40px 40px;
+  position: relative;
+  z-index: 1;
 }
 .medal-hero .medal-rank {
   color: #F4D89A !important;
-  font-size: clamp(40px, 4.5vw, 72px) !important;
+  font-size: clamp(36px, 3.5vw, 56px) !important;
   letter-spacing: 4px;
 }
 .medal-hero .medal-rank span {
@@ -546,29 +558,30 @@ h1, h2, h3, h4, p, blockquote, li {
 }
 .medal-hero .medal-name {
   color: var(--bg) !important;
-  font-size: 24px !important;
+  font-size: 22px !important;
 }
 .medal-hero .medal-cat {
-  color: rgba(255, 252, 242, .65) !important;
+  color: rgba(255, 252, 242, .7) !important;
 }
 .medal-hero .medal-desc {
-  color: rgba(255, 252, 242, .85) !important;
+  color: rgba(255, 252, 242, .88) !important;
   font-size: 15px !important;
 }
 .medal-hero .medal-desc strong {
   color: #F4D89A !important;
 }
 
+/* — 일반 메달 카드: 사진 위 + 텍스트 아래 (column) — */
 .medal {
   background: var(--bg-cream);
   border: 1px solid var(--line);
   border-radius: 16px;
-  padding: 32px 28px;
+  padding: 0;
   display: flex;
-  gap: 24px;
-  align-items: center;
+  flex-direction: column;
   transition: all .35s var(--ease);
   position: relative;
+  overflow: hidden;
 }
 .medal:hover {
   border-color: var(--accent);
@@ -577,19 +590,17 @@ h1, h2, h3, h4, p, blockquote, li {
   background: var(--white);
 }
 .medal-img {
-  flex: 0 0 130px;
-  width: 130px;
-  height: 130px;
+  width: 100%;
+  height: 220px;
   background: var(--white);
-  border: 1px solid var(--line-light);
-  border-radius: 12px;
+  border: none;
+  border-bottom: 1px solid var(--line-light);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 12px;
+  padding: 24px;
   position: relative;
-  z-index: 1;
 }
 .medal-img img {
   max-width: 100%;
@@ -602,15 +613,13 @@ h1, h2, h3, h4, p, blockquote, li {
 }
 .medal-icon {
   font-family: var(--display);
-  font-size: 64px;
+  font-size: 80px;
   color: var(--bg);
   line-height: 1;
 }
 .medal-text {
-  flex: 1;
-  min-width: 0;
+  padding: 28px 32px 32px;
   position: relative;
-  z-index: 1;
 }
 .medal-rank {
   font-family: var(--display);
@@ -1637,8 +1646,10 @@ h1, h2, h3, h4, p, blockquote, li {
   .story-img { min-height: 50vh; }
   .story-text { padding: 72px 32px; }
   .bottles-inner, .award-grid, .prod-grid, .step-row, .footer-top, .footer-nav, .medal-grid { grid-template-columns: 1fr; }
-  .medal-hero { grid-template-columns: 1fr !important; gap: 32px !important; padding: 40px !important; }
-  .medal-hero .medal-img { height: 200px; }
+  .medal-hero .medal-img { height: 240px !important; }
+  .medal-hero .medal-text { padding: 28px 28px 32px; }
+  .medal-img { height: 180px; padding: 18px; }
+  .medal-text { padding: 24px 24px 28px; }
   .apps { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
