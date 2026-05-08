@@ -535,12 +535,26 @@ h1, h2, h3, h4, p, blockquote, li {
   background: rgba(255, 252, 242, .96) !important;
   border: none !important;
   width: 100% !important;
+  max-width: 100% !important;
   height: 320px !important;
+  max-height: 320px !important;
   border-radius: 0 !important;
   padding: 24px !important;
-  flex: none;
+  flex: none !important;
   position: relative;
   z-index: 1;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  box-sizing: border-box;
+}
+.medal-hero .medal-img img {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
 }
 .medal-hero .medal-text {
   padding: 32px 40px 40px;
@@ -572,40 +586,49 @@ h1, h2, h3, h4, p, blockquote, li {
 }
 
 /* — 일반 메달 카드: 사진 위 + 텍스트 아래 (column) — */
-.medal {
-  background: var(--bg-cream);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
+.medal-grid > .medal {
+  background: var(--bg-cream) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 16px !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
   transition: all .35s var(--ease);
   position: relative;
-  overflow: hidden;
+  overflow: hidden !important;
+  box-sizing: border-box;
 }
-.medal:hover {
-  border-color: var(--accent);
+.medal-grid > .medal:hover {
+  border-color: var(--accent) !important;
   transform: translateY(-4px);
   box-shadow: 0 20px 48px rgba(28, 22, 20, .1);
-  background: var(--white);
+  background: var(--white) !important;
 }
-.medal-img {
-  width: 100%;
-  height: 220px;
-  background: var(--white);
-  border: none;
-  border-bottom: 1px solid var(--line-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  padding: 24px;
+.medal-grid .medal-img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 220px !important;
+  max-height: 220px !important;
+  background: var(--white) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--line-light) !important;
+  border-radius: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  padding: 20px !important;
   position: relative;
+  box-sizing: border-box;
+  flex: none !important;
 }
-.medal-img img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+.medal-grid .medal-img img {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block;
 }
 .medal-img-text {
   background: linear-gradient(135deg, var(--accent) 0%, #8B2218 100%);
