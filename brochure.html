@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>제품 소개서 받기 | 로렌츄 B2B — 논알콜 와인 도매</title>
+<meta name="description" content="츄퍼 논알콜 와인 제품 라인업·도매가·발주 단위·납기·HACCP 정보가 담긴 제품 소개서. 이메일로 즉시 발송됩니다." />
+<meta name="robots" content="index, follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=League+Gothic&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css" />
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="form-page">
+
+<section class="form-page-hero">
+  <a href="index.html" class="form-back">← 메인으로</a>
+  <p class="overline center">N°01 — BROCHURE</p>
+  <h1>제품 소개서를<br>이메일로 받기.</h1>
+  <p>제품 라인업 · 도매가 · 발주 단위 · 납기 · HACCP.<br>입력하신 이메일로 즉시 발송됩니다.</p>
+</section>
+
+<div>
+  <div class="form-wrap">
+    <p class="form-section-title">파트너 정보</p>
+    <form id="brochureForm" data-form="brochure">
+      <div class="field-row">
+        <div class="field">
+          <label>회사·매장명 <span class="req">*</span></label>
+          <input type="text" name="company" required placeholder="예) 강남 와인바 ABC" />
+        </div>
+        <div class="field">
+          <label>담당자명 <span class="req">*</span></label>
+          <input type="text" name="name" required />
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>이메일 <span class="req">*</span></label>
+          <input type="email" name="email" required placeholder="name@company.co.kr" />
+        </div>
+        <div class="field">
+          <label>연락처 (선택)</label>
+          <input type="tel" name="phone" placeholder="010-1234-5678" />
+        </div>
+      </div>
+      <div class="field">
+        <label>업종</label>
+        <select name="industry">
+          <option value="">선택해주세요</option>
+          <option>호텔 · 리조트</option>
+          <option>웨딩홀 · 컨벤션</option>
+          <option>레스토랑 · 다이닝</option>
+          <option>카페 · 베이커리</option>
+          <option>와인샵 · 보틀샵</option>
+          <option>백화점 · 면세점</option>
+          <option>기업 · 후생복지</option>
+          <option>유통 · 도매</option>
+          <option>기타</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>관심 라인 (복수 선택)</label>
+        <div class="checks">
+          <label class="check-pill"><input type="checkbox" name="interest" value="샤인로제" />샤인 로제</label>
+          <label class="check-pill"><input type="checkbox" name="interest" value="버블리샹그리아" />버블리 샹그리아</label>
+          <label class="check-pill"><input type="checkbox" name="interest" value="선셋스프리츠" />선셋 스프리츠</label>
+          <label class="check-pill"><input type="checkbox" name="interest" value="전체" />전체 라인업</label>
+        </div>
+      </div>
+      <button type="submit" class="form-submit">제품 소개서 받기</button>
+      <p class="legal">
+        ※ 입력하신 정보는 영업 연락 외 다른 용도로 사용되지 않습니다.
+      </p>
+      <div class="form-status" id="formStatus"></div>
+    </form>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="footer-mark">CHOOPER</p>
+        <p class="footer-tag">로렌츄컴퍼니 · B2B Partners</p>
+        <p class="footer-tagline">고객이 다시 찾는 논알콜 와인.</p>
+      </div>
+      <nav class="footer-nav">
+        <div>
+          <h4>둘러보기</h4>
+          <a href="index.html">메인</a>
+          <a href="sample.html">무료 샘플</a>
+          <a href="inquiry.html">자동 견적</a>
+        </div>
+        <div>
+          <h4>고객센터</h4>
+          <a href="tel:070-8845-2848">070-8845-2848</a>
+          <a href="mailto:choopermarket1@gmail.com">choopermarket1@gmail.com</a>
+          <p class="muted">평일 09:00 — 18:00</p>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="muted">© Laurenchoo Company · 사업자등록 310-86-01763</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
