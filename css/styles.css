@@ -655,6 +655,25 @@ h1, h2, h3, h4, p, blockquote, li {
 .medal-pending { opacity: .92; }
 .medal-pending .medal-rank { font-size: 22px; letter-spacing: 4px; }
 
+/* 금메달 카드 — 살짝 더 격조 */
+.medal-gold {
+  background: linear-gradient(135deg, #FAF3E2 0%, #F2E5C9 100%);
+  border-color: #D4B583;
+}
+.medal-gold:hover {
+  border-color: #B89762;
+  background: linear-gradient(135deg, #FFFCF2 0%, #F8ECCC 100%);
+}
+.medal-gold .medal-rank {
+  color: #B89762;
+  font-size: 36px;
+  letter-spacing: 4px;
+}
+.medal-gold .medal-img {
+  background: linear-gradient(135deg, #FFFCF2 0%, #F0E0B8 100%);
+  border-color: rgba(184, 151, 98, .3);
+}
+
 .awards-foot {
   display: flex;
   align-items: center;
