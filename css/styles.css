@@ -6,20 +6,30 @@
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
-  /* — 럭셔리 워밍 팔레트 (Aman/French Bloom/Penfolds 톤) — */
-  --bg:           #F2E9D6;        /* 따뜻한 샴페인 베이지 (메인 배경) */
-  --bg-soft:      #E8DDC4;        /* 더 깊은 워밍 토프 */
-  --bg-cream:     #FAF3E3;        /* 라이트 카드 배경 */
-  --bg-deep:      #1C1614;        /* 다크 섹션 */
-  --ink:          #1C1614;        /* 본문 */
-  --ink-soft:     #2A2420;        /* 보조 본문 */
+  /* — 위트 컬러풀 팔레트 v12 — */
+  --bg:           #F2E9D6;        /* 베이스 샴페인 베이지 */
+  --bg-soft:      #E8DDC4;
+  --bg-cream:     #FAF3E3;
+  --bg-blush:     #F8DCC8;        /* ★ 새 — 블러쉬 피치 배경 */
+  --bg-olive:     #E5E3CC;        /* ★ 새 — 라이트 올리브 배경 */
+  --bg-deep:      #1C1614;
+  --ink:          #1C1614;
+  --ink-soft:     #2A2420;
   --ink-mute:     rgba(42, 36, 32, 0.62);
   --ink-faint:    rgba(42, 36, 32, 0.38);
-  --accent:       #C04022;        /* 깊은 테라코타 (라이트 배경용) */
-  --accent-light: #F4B07A;        /* ★ 다크 배경용 — 밝은 피치 (가독성) */
+
+  /* — 3개 액센트 컬러 (위트 핵심) — */
+  --accent:       #C04022;        /* 1. 테라코타 — 메인 (와인 톤) */
+  --accent-light: #F4B07A;        /* 다크 위 가독성 */
+  --peach:        #E8896E;        /* 2. ★ 코랄 피치 — 따뜻함 */
+  --peach-deep:   #C45A40;
+  --olive:        #8B9A5E;        /* 3. ★ 올리브 그린 — 자연·신선 */
+  --olive-deep:   #5F6B3F;
+  --gold:         #D4B583;
+  --gold-deep:    #B89762;
+
   --accent-soft:  rgba(192, 64, 34, 0.5);
   --accent-glow:  rgba(192, 64, 34, 0.12);
-  --gold:         #D4B583;        /* 따뜻한 골드 (다크 위 보조) */
   --line:         rgba(42, 36, 32, 0.14);
   --line-light:   rgba(42, 36, 32, 0.08);
   --white:        #FFFFFF;
@@ -180,6 +190,179 @@ h1, h2, h3, h4, p, blockquote, li {
   transition: background .25s var(--ease);
 }
 .nav-cta:hover { background: var(--accent); }
+
+/* ═══════════════════════════════════════════════════════════════
+   🎨 WIT ELEMENTS — Stickers, Big Numbers, Highlights, Squiggles
+   ═══════════════════════════════════════════════════════════════ */
+
+/* — 히어로 플로팅 스티커들 — */
+.hero-stickers {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+.sticker {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--inter);
+  font-weight: 800;
+  text-align: center;
+  box-shadow: 0 12px 32px rgba(28, 22, 20, .25);
+  transition: transform .6s var(--ease);
+  animation: stickerFloat 6s ease-in-out infinite;
+}
+.sticker:hover { transform: rotate(0deg) scale(1.05); }
+.sticker-1 {
+  top: 16%; right: 8%;
+  width: 130px; height: 130px;
+  background: var(--peach);
+  color: var(--ink);
+  border-radius: 50%;
+  transform: rotate(-12deg);
+  border: 4px solid var(--bg-cream);
+}
+.sticker-1 .s-num {
+  font-family: var(--display);
+  font-size: 56px;
+  line-height: 1;
+  letter-spacing: 0;
+}
+.sticker-1 .s-pct { font-size: 18px; margin-top: -4px; letter-spacing: 1px; }
+.sticker-1 .s-label { font-size: 10px; letter-spacing: 3px; margin-top: 2px; }
+
+.sticker-2 {
+  bottom: 18%; left: 6%;
+  width: 110px; height: 110px;
+  background: var(--olive);
+  color: var(--bg-cream);
+  border-radius: 50%;
+  transform: rotate(8deg);
+  border: 4px solid var(--bg-cream);
+  animation-delay: -2s;
+}
+.sticker-2 .s-icon { font-size: 24px; color: var(--gold); }
+.sticker-2 .s-text {
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+.sticker-3 {
+  top: 60%; right: 12%;
+  width: 100px; height: 100px;
+  background: var(--gold);
+  color: var(--ink);
+  border-radius: 50%;
+  transform: rotate(15deg);
+  border: 4px solid var(--bg-cream);
+  animation-delay: -4s;
+}
+.sticker-3 .s-num-sm {
+  font-family: var(--display);
+  font-size: 36px;
+  line-height: 1;
+  color: var(--accent);
+}
+.sticker-3 .s-text-sm {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  line-height: 1.3;
+  margin-top: 4px;
+}
+
+@keyframes stickerFloat {
+  0%, 100% { transform: rotate(var(--rot, -12deg)) translateY(0); }
+  50% { transform: rotate(var(--rot, -12deg)) translateY(-10px); }
+}
+.sticker-1 { --rot: -12deg; }
+.sticker-2 { --rot: 8deg; }
+.sticker-3 { --rot: 15deg; }
+
+/* — 거대 컬러풀 27 숫자 (story) — */
+.big-num-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 24px 0 32px;
+}
+.big-num {
+  font-family: var(--display);
+  font-size: clamp(120px, 12vw, 200px);
+  line-height: 0.9;
+  color: var(--peach);
+  text-shadow:
+    -3px 3px 0 var(--bg-cream),
+    -6px 6px 0 var(--accent);
+  letter-spacing: -0.02em;
+}
+.big-num-suffix {
+  font-family: var(--pretendard);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  padding-top: 12px;
+}
+
+/* — 컬러풀 텍스트 하이라이트 — */
+.highlight-peach {
+  background: linear-gradient(180deg, transparent 60%, var(--peach) 60%, var(--peach) 90%, transparent 90%);
+  padding: 0 4px;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--ink);
+}
+.highlight-olive {
+  background: linear-gradient(180deg, transparent 65%, rgba(139, 154, 94, .4) 65%, rgba(139, 154, 94, .4) 92%, transparent 92%);
+  padding: 0 4px;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* — 스토리 사진 위 스탬프 — */
+.story-img { position: relative; }
+.story-stamp {
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+  font-family: var(--inter);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: var(--bg-cream);
+  background: rgba(192, 64, 34, .92);
+  padding: 14px 20px;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 1.3;
+  transform: rotate(-3deg);
+  box-shadow: 0 8px 24px rgba(28, 22, 20, .25);
+  border: 2px dashed rgba(255, 252, 238, .35);
+}
+
+/* — 스퀴글 디바이더 — */
+.squiggle-divider {
+  background: var(--bg);
+  padding: 20px 0;
+  color: var(--peach);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.squiggle-divider svg {
+  width: min(900px, 70%);
+  height: 28px;
+  opacity: .55;
+}
 
 /* ═══════════ HERO ═══════════ */
 .hero {
@@ -395,8 +578,19 @@ h1, h2, h3, h4, p, blockquote, li {
 
 /* ═══════════ BOTTLES ═══════════ */
 .bottles {
-  background: var(--bg-soft);
+  background: linear-gradient(180deg, var(--bg-blush) 0%, var(--bg-soft) 100%);
   padding: 100px 32px;
+  position: relative;
+}
+.bottles::before {
+  content: '';
+  position: absolute;
+  top: 32px; left: 50%;
+  transform: translateX(-50%);
+  width: 60px; height: 60px;
+  background: var(--olive);
+  border-radius: 50%;
+  opacity: .15;
 }
 .bottles-inner {
   max-width: 1280px;
@@ -686,6 +880,25 @@ h1, h2, h3, h4, p, blockquote, li {
 }
 .medal-pending { opacity: .92; }
 .medal-pending .medal-rank { font-size: 22px; letter-spacing: 4px; }
+
+/* — 컬러별 메달 카드 (위트) — */
+.medal-peach {
+  background: linear-gradient(135deg, var(--bg-blush) 0%, #FAE3D2 100%) !important;
+}
+.medal-peach .medal-rank { color: var(--peach-deep) !important; }
+.medal-peach:hover { border-color: var(--peach) !important; }
+
+.medal-olive {
+  background: linear-gradient(135deg, var(--bg-olive) 0%, #EFEDD8 100%) !important;
+}
+.medal-olive .medal-rank { color: var(--olive-deep) !important; }
+.medal-olive:hover { border-color: var(--olive) !important; }
+
+.medal-bronze {
+  background: linear-gradient(135deg, #F4E4D4 0%, #ECD9C5 100%) !important;
+}
+.medal-bronze .medal-rank { color: #8B5A2B !important; }
+.medal-bronze:hover { border-color: #B07A45 !important; }
 
 /* 금메달 카드 — 살짝 더 격조 */
 .medal-gold {

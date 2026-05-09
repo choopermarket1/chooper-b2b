@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=League+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=12">
+<link rel="stylesheet" href="css/styles.css?v=13">
 
 <script type="application/ld+json">
 {
@@ -57,6 +57,23 @@
     <img src="https://images.unsplash.com/photo-1474722883778-792e7990302f?w=2400&q=85&auto=format&fit=crop" alt="와인 무드" />
     <div class="hero-veil"></div>
   </div>
+  <!-- 플로팅 스티커들 (위트) -->
+  <div class="hero-stickers" aria-hidden="true">
+    <div class="sticker sticker-1">
+      <span class="s-num">0.0</span>
+      <span class="s-pct">%</span>
+      <span class="s-label">ALC.</span>
+    </div>
+    <div class="sticker sticker-2">
+      <span class="s-icon">★</span>
+      <span class="s-text">WORLD<br>N°1</span>
+    </div>
+    <div class="sticker sticker-3">
+      <span class="s-num-sm">27</span>
+      <span class="s-text-sm">번 레시피<br>변경</span>
+    </div>
+  </div>
+
   <div class="hero-inner">
     <div class="hero-badge">
       <span class="dot"></span>
@@ -106,18 +123,30 @@
   </div>
 </section>
 
-<!-- ═══════════ STORY (사진 + 텍스트 split) ═══════════ -->
+<!-- ═══════════ STORY (split + 거대 컬러풀 27) ═══════════ -->
 <section id="story" class="story">
   <div class="story-img">
     <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1600&q=85&auto=format&fit=crop" alt="와인 양조 과정" />
+    <span class="story-stamp">VACUUM<br>DISTILLED</span>
   </div>
   <div class="story-text">
     <p class="kicker">N°01 — STORY</p>
-    <h2 class="h2">와인의 풍미만을 위해,<br><span class="accent">27번</span> 레시피를 바꿨습니다.</h2>
-    <p class="body">알코올만 정밀 분리하고 폴리페놀, 탄닌, 향미 프로파일은 그대로. 블라인드 테이스팅에서 가장 많이 듣는 질문은 — "이거 진짜 논알콜인가요?" 입니다.</p>
-    <p class="body">그래서 한 번 드신 손님이 다시 찾으십니다. 그러니까 사장님께 다시 발주가 들어옵니다.</p>
+    <h2 class="h2">와인의 풍미만을 위해,</h2>
+    <div class="big-num-wrap">
+      <span class="big-num">27</span>
+      <span class="big-num-suffix">번<br>레시피<br>변경</span>
+    </div>
+    <p class="body">알코올만 정밀 분리하고 폴리페놀, 탄닌, 향미 프로파일은 그대로. 블라인드 테이스팅에서 가장 많이 듣는 질문은 — <em class="highlight-peach">"이거 진짜 논알콜인가요?"</em></p>
+    <p class="body">그래서 한 번 드신 손님이 다시 찾으십니다. <em class="highlight-olive">그러니까 사장님께 다시 발주가 들어옵니다.</em></p>
   </div>
 </section>
+
+<!-- 위트 디바이더 -->
+<div class="squiggle-divider" aria-hidden="true">
+  <svg viewBox="0 0 1440 40" preserveAspectRatio="none">
+    <path d="M0 20 Q 60 0 120 20 T 240 20 T 360 20 T 480 20 T 600 20 T 720 20 T 840 20 T 960 20 T 1080 20 T 1200 20 T 1320 20 T 1440 20" fill="none" stroke="currentColor" stroke-width="2" />
+  </svg>
+</div>
 
 <!-- ═══════════ HERO BOTTLES (3 sets) ═══════════ -->
 <section class="bottles">
@@ -167,7 +196,7 @@
         </div>
       </article>
 
-      <article class="medal">
+      <article class="medal medal-peach">
         <div class="medal-img">
           <img src="https://lh3.googleusercontent.com/d/1b7FN48hpp6sj18sFkRKBkJ0W60k9nZNs=w900" alt="World Drinks Awards 2024 — 츄퍼 샤인 로제"
                onerror="this.src='https://drive.google.com/thumbnail?id=1b7FN48hpp6sj18sFkRKBkJ0W60k9nZNs&sz=w900'" />
@@ -180,7 +209,7 @@
         </div>
       </article>
 
-      <article class="medal">
+      <article class="medal medal-olive">
         <div class="medal-img">
           <img src="https://lh3.googleusercontent.com/d/1Trv7_pH47ix_UVGUeZdomW52CGDd2RsS=w900" alt="Global Low and No Wine Masters 2024 Silver Medal"
                onerror="this.src='https://drive.google.com/thumbnail?id=1Trv7_pH47ix_UVGUeZdomW52CGDd2RsS&sz=w900'" />
@@ -193,7 +222,7 @@
         </div>
       </article>
 
-      <article class="medal">
+      <article class="medal medal-bronze">
         <div class="medal-img">
           <img src="https://lh3.googleusercontent.com/d/1YolalRxEB5RDBVNfUb3P_LpOBsTdfhmo=w900" alt="IWSC 2024 Bronze Award"
                onerror="this.src='https://drive.google.com/thumbnail?id=1YolalRxEB5RDBVNfUb3P_LpOBsTdfhmo&sz=w900'" />
