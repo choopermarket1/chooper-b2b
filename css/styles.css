@@ -581,6 +581,77 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   text-transform: none;
 }
 
+/* ═══════════ HERITAGE GALLERY (사장님 실사진) ═══════════ */
+.heritage {
+  padding: 140px 0 0;
+  background: var(--sand);
+  position: relative;
+}
+.heritage .display-l { margin-bottom: 24px; }
+.heritage .lede { margin-bottom: 80px; }
+.heritage-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+  height: 80vh;
+  max-height: 720px;
+  margin: 0;
+  padding: 0 40px;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hg-tile {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  margin: 0;
+}
+.hg-large {
+  grid-row: 1 / 3;
+}
+.hg-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(.88) contrast(1.05);
+  transition: transform 1.4s var(--ease), filter .6s var(--ease);
+}
+.hg-tile:hover img {
+  transform: scale(1.06);
+  filter: brightness(1) contrast(1.05);
+}
+.hg-tile figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: linear-gradient(180deg, transparent 0%, rgba(26, 20, 16, .85) 100%);
+  color: var(--sand);
+  transition: padding .35s var(--ease);
+}
+.hg-tile:hover figcaption { padding-bottom: 32px; }
+.hg-label {
+  font-family: var(--inter);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--mustard-soft);
+  text-transform: uppercase;
+}
+.hg-place {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--sand);
+  letter-spacing: 0.5px;
+}
+.hg-large .hg-label { font-size: 11px; }
+.hg-large .hg-place { font-size: 22px; }
+
 /* ═══════════ AWARDS ═══════════ */
 .awards {
   padding: 140px 0;
@@ -1446,6 +1517,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .menu { display: none; }
   .method-grid { grid-template-columns: 1fr; gap: 56px; }
   .medal-row { grid-template-columns: repeat(2, 1fr); }
+  .heritage-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; height: auto; max-height: none; }
+  .hg-large { grid-column: 1 / -1; grid-row: 1; aspect-ratio: 16 / 9; }
+  .hg-tile:not(.hg-large) { aspect-ratio: 1; }
   .bot-row { grid-template-columns: 1fr; }
   .bot { border-right: none; border-bottom: 1px solid var(--line); }
   .bot:last-child { border-bottom: none; }
