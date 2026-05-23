@@ -1898,10 +1898,11 @@ em, i, .italic, cite, address, dfn, var {
 .form-page-hero h1 em { font-style: normal; color: var(--mustard-soft); }
 .form-page-hero p {
   font-family: var(--pretendard);
-  font-size: 15px;
-  line-height: 1.85;
-  color: rgba(255, 252, 240, .82);
-  max-width: 540px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.75;
+  color: rgba(255, 252, 240, .92);
+  max-width: 620px;
   margin: 0 auto;
   letter-spacing: -0.005em;
 }
@@ -1930,43 +1931,43 @@ em, i, .italic, cite, address, dfn, var {
 }
 .form-section-title {
   font-family: var(--pretendard);
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: -0.01em;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.015em;
   color: var(--mustard);
   text-transform: none;
-  margin-bottom: 20px;
-  padding-bottom: 12px;
+  margin-bottom: 28px;
+  padding-bottom: 14px;
   border-bottom: 1px solid var(--line);
 }
 
-.field { margin-bottom: 20px; }
+.field { margin-bottom: 26px; }
 .field label {
   display: block;
   font-family: var(--pretendard);
-  font-weight: 600;
-  font-size: 12.5px;
-  letter-spacing: -0.005em;
-  color: var(--ink-soft);
-  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 10px;
   text-transform: none;
 }
-.field label .req { color: var(--terra); margin-left: 3px; font-weight: 700; }
+.field label .req { color: var(--terra); margin-left: 4px; font-weight: 800; }
 .field input,
 .field textarea,
 .field select {
   width: 100%;
-  padding: 11px 0;
+  padding: 14px 0;
   font-family: var(--pretendard);
-  font-weight: 400;
-  font-size: 15px;
+  font-weight: 500;
+  font-size: 18px;
   color: var(--ink);
   background: transparent;
   border: none;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1.5px solid var(--line);
   border-radius: 0;
   transition: border-color .3s var(--ease);
-  letter-spacing: -0.005em;
+  letter-spacing: -0.012em;
 }
 .field input:focus,
 .field textarea:focus,
@@ -1985,18 +1986,19 @@ em, i, .italic, cite, address, dfn, var {
 }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
 
-.checks { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.checks { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
 .check-pill {
-  padding: 11px 18px;
-  border: 1px solid var(--line);
+  padding: 14px 22px;
+  border: 1.5px solid var(--line);
   background: transparent;
   font-family: var(--pretendard);
-  font-weight: 500;
-  font-size: 13px;
-  color: var(--ink-soft);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ink);
   cursor: pointer;
   transition: all .25s var(--ease);
   user-select: none;
+  letter-spacing: -0.01em;
 }
 .check-pill:hover { border-color: var(--mustard); color: var(--ink); }
 .check-pill input { display: none; }
@@ -2008,16 +2010,16 @@ em, i, .italic, cite, address, dfn, var {
 
 .form-submit {
   width: 100%;
-  margin-top: 24px;
-  padding: 18px 32px;
+  margin-top: 32px;
+  padding: 22px 32px;
   background: var(--ink);
   color: var(--sand);
   border: none;
-  font-family: var(--inter);
-  font-weight: 500;
-  font-size: 13px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
+  font-family: var(--pretendard);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.015em;
+  text-transform: none;
   cursor: pointer;
   transition: background .35s var(--ease);
 }
