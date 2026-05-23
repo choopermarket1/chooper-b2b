@@ -1123,6 +1123,10 @@ em, i, .italic, cite, address, dfn, var {
   text-transform: uppercase;
 }
 .bot-feature .bot-size {
+  /* featured 카드는 우측에 '세계 1위' ribbon이 있으므로 size 배지는 좌측 N°번호 아래로 */
+  top: 80px;
+  right: auto;
+  left: 28px;
   color: var(--mustard-soft);
   background: rgba(212, 181, 131, .15);
   border-color: var(--mustard-soft);
