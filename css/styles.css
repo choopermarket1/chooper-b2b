@@ -38,11 +38,11 @@
   --white:        #FFFFFF;
 
   /* — Typography — */
-  --display: "Cormorant Garamond", "Italiana", serif;
-  --serif:   "Cormorant Garamond", serif;
+  --display: "Cormorant Garamond", "Pretendard Variable", Pretendard, "Italiana", serif;
+  --serif:   "Cormorant Garamond", "Pretendard Variable", Pretendard, serif;
   --pretendard: "Pretendard Variable", Pretendard, -apple-system, system-ui, sans-serif;
-  --inter:   "Inter", "Pretendard Variable", sans-serif;
-  --italiana: "Italiana", serif;
+  --inter:   "Inter", "Pretendard Variable", Pretendard, sans-serif;
+  --italiana: "Italiana", "Pretendard Variable", serif;
 
   --ease: cubic-bezier(.16, 1, .3, 1);
   --ease-slow: cubic-bezier(.65, 0, .35, 1);
@@ -100,17 +100,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .display-l {
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: clamp(40px, 5.5vw, 88px);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  font-family: var(--pretendard);
+  font-weight: 700;
+  font-size: clamp(34px, 4.6vw, 68px);
+  line-height: 1.18;
+  letter-spacing: -0.035em;
   color: var(--ink);
   margin-bottom: 24px;
+  word-break: keep-all;
 }
 .display-l em {
-  font-style: italic;
-  font-weight: 400;
+  font-style: normal;
+  font-weight: 800;
   color: var(--terra);
 }
 .display-l.center { text-align: center; }
@@ -118,34 +119,37 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .display-l.light em { color: var(--mustard-soft); }
 
 .lede {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(17px, 1.7vw, 21px);
-  line-height: 1.7;
+  font-family: var(--pretendard);
+  font-weight: 500;
+  font-size: clamp(17px, 1.55vw, 20px);
+  line-height: 1.75;
   color: var(--ink-soft);
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
   margin-bottom: 56px;
-  font-style: italic;
+  font-style: normal;
+  word-break: keep-all;
 }
-.lede.center { text-align: center; max-width: 640px; margin-left: auto; margin-right: auto; }
+.lede.center { text-align: center; max-width: 720px; margin-left: auto; margin-right: auto; }
 
 .body-en {
   font-family: var(--serif);
-  font-size: 19px;
-  line-height: 1.8;
-  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ink-mute);
   font-style: italic;
   margin-bottom: 24px;
-  max-width: 36ch;
+  max-width: 42ch;
 }
 .body-kr {
   font-family: var(--pretendard);
-  font-size: 15px;
+  font-weight: 500;
+  font-size: 18px;
   line-height: 1.85;
-  color: var(--ink-mute);
-  letter-spacing: -0.005em;
+  color: var(--ink);
+  letter-spacing: -0.012em;
   margin-bottom: 32px;
   max-width: 36ch;
+  word-break: keep-all;
 }
 
 .overline {
@@ -238,11 +242,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   justify-self: center;
 }
 .menu a {
-  font-family: var(--inter);
-  font-weight: 400;
-  font-size: 13px;
-  letter-spacing: 1.5px;
-  color: rgba(255, 252, 240, .85);
+  font-family: var(--pretendard);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.005em;
+  color: rgba(255, 252, 240, .92);
   position: relative;
   padding: 4px 0;
   transition: color .3s var(--ease);
@@ -357,11 +361,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .hero-kr {
   font-family: var(--pretendard);
-  font-weight: 300;
-  font-size: 17px;
-  line-height: 1.6;
-  color: rgba(255, 252, 240, .82);
-  letter-spacing: 0.05em;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.55;
+  color: rgba(255, 252, 240, .96);
+  letter-spacing: -0.005em;
   margin-top: 40px;
   opacity: 0;
   animation: lineUp 1.2s var(--ease) 1s forwards;
@@ -868,20 +872,24 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin-bottom: 18px;
 }
 .bot-desc {
-  font-family: var(--serif);
-  font-style: italic;
+  font-family: var(--pretendard);
+  font-style: normal;
+  font-weight: 500;
   font-size: 16px;
-  line-height: 1.7;
-  color: var(--ink-soft);
+  line-height: 1.75;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  word-break: keep-all;
 }
 .bot-desc .kr {
   display: block;
-  font-family: var(--pretendard);
-  font-style: normal;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
   font-size: 13px;
   color: var(--ink-mute);
-  margin-top: 8px;
-  letter-spacing: -0.005em;
+  margin-top: 6px;
+  letter-spacing: 0;
 }
 
 /* ═══════════ ASIDE — witty pause ═══════════ */
@@ -903,23 +911,30 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin-bottom: 32px;
 }
 .aside-quote {
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: clamp(32px, 4vw, 56px);
-  line-height: 1.3;
-  letter-spacing: -0.015em;
+  font-family: var(--pretendard);
+  font-weight: 600;
+  font-size: clamp(28px, 3.6vw, 48px);
+  line-height: 1.4;
+  letter-spacing: -0.025em;
   color: var(--sand);
   margin-bottom: 32px;
+  word-break: keep-all;
 }
 .aside-quote em {
-  font-style: italic;
+  font-style: normal;
+  font-weight: 700;
   color: var(--mustard-soft);
 }
 .aside-kr {
   font-family: var(--pretendard);
-  font-size: 14px;
-  color: rgba(255, 252, 240, .7);
-  letter-spacing: -0.005em;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255, 252, 240, .88);
+  letter-spacing: -0.01em;
+  max-width: 540px;
+  margin: 0 auto;
+  word-break: keep-all;
 }
 
 /* ═══════════ PARTNERS — full bleed ═══════════ */
@@ -1019,16 +1034,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin-bottom: 32px;
 }
 .big-quote {
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: clamp(28px, 4vw, 56px);
-  line-height: 1.3;
-  letter-spacing: -0.015em;
+  font-family: var(--pretendard);
+  font-weight: 600;
+  font-size: clamp(26px, 3.4vw, 46px);
+  line-height: 1.45;
+  letter-spacing: -0.025em;
   color: var(--ink);
   margin-bottom: 40px;
+  word-break: keep-all;
 }
 .big-quote em {
-  font-style: italic;
+  font-style: normal;
+  font-weight: 700;
   color: var(--wine);
 }
 .qattr {
@@ -1036,27 +1053,29 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   flex-direction: column;
   gap: 4px;
   align-items: center;
-  font-family: var(--inter);
+  font-family: var(--pretendard);
   margin-bottom: 16px;
 }
 .qattr strong {
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
   color: var(--terra);
-  text-transform: uppercase;
 }
 .qattr span {
-  font-weight: 400;
-  font-size: 12px;
+  font-weight: 500;
+  font-size: 13px;
   color: var(--ink-mute);
-  letter-spacing: 1.5px;
+  letter-spacing: 0;
 }
 .qattr-kr {
   font-family: var(--pretendard);
-  font-size: 13px;
-  color: var(--ink-mute);
-  letter-spacing: -0.005em;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  letter-spacing: -0.01em;
+  word-break: keep-all;
 }
 
 /* ═══════════ NEXT ═══════════ */
@@ -1103,28 +1122,31 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin-bottom: 24px;
 }
 .step h3 {
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: clamp(28px, 2.6vw, 40px);
-  letter-spacing: -0.01em;
+  font-family: var(--pretendard);
+  font-weight: 700;
+  font-size: clamp(22px, 2vw, 28px);
+  letter-spacing: -0.025em;
   color: var(--ink);
   margin-bottom: 16px;
 }
 .step-en {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--ink-soft);
-  margin-bottom: 12px;
-  flex: 1;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-mute);
+  margin-top: 8px;
+  letter-spacing: 0;
 }
 .step-kr {
   font-family: var(--pretendard);
-  font-size: 12px;
-  color: var(--ink-mute);
-  letter-spacing: -0.005em;
-  line-height: 1.6;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--ink-soft);
+  letter-spacing: -0.012em;
+  line-height: 1.7;
+  word-break: keep-all;
+  flex: 1;
 }
 
 /* ═══════════ FOOTER ═══════════ */
