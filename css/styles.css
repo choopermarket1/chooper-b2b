@@ -1015,7 +1015,7 @@ em, i, .italic, cite, address, dfn, var {
 .collection .display-l { margin-bottom: 96px; }
 .bot-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 0;
   border-top: 1px solid var(--line);
 }
@@ -1024,12 +1024,33 @@ em, i, .italic, cite, address, dfn, var {
   display: flex;
   flex-direction: column;
   border-right: 1px solid var(--line);
-  padding: 56px 40px 64px;
+  padding: 48px 28px 56px;
   background: var(--paper);
   transition: background .5s var(--ease);
 }
 .bot:last-child { border-right: none; }
 .bot:hover { background: var(--bg-cream); }
+
+/* 용량 배지 (750ml / 375ml / NEW) */
+.bot-size {
+  position: absolute;
+  top: 48px;
+  right: 28px;
+  font-family: var(--inter);
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--terra);
+  background: rgba(181, 102, 74, .1);
+  border: 1px solid var(--terra);
+  padding: 4px 10px;
+  text-transform: uppercase;
+}
+.bot-feature .bot-size {
+  color: var(--mustard-soft);
+  background: rgba(212, 181, 131, .15);
+  border-color: var(--mustard-soft);
+}
 .bot-feature {
   background: linear-gradient(180deg, #2A1F1A 0%, #1A1410 100%);
   color: var(--sand);
@@ -1053,17 +1074,17 @@ em, i, .italic, cite, address, dfn, var {
 }
 .bot-ribbon {
   position: absolute;
-  top: 56px;
-  right: 40px;
-  font-family: var(--inter);
-  font-weight: 500;
-  font-size: 10px;
-  letter-spacing: 3px;
-  color: var(--mustard-soft);
-  background: rgba(212, 181, 131, .15);
-  border: 1px solid var(--mustard-soft);
+  top: 48px;
+  right: 28px;
+  font-family: var(--pretendard);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0;
+  color: var(--ink);
+  background: var(--mustard);
+  border: none;
   padding: 5px 12px;
-  text-transform: uppercase;
+  text-transform: none;
 }
 .bot-img {
   aspect-ratio: 1 / 1.3;
@@ -2044,9 +2065,10 @@ button[type=submit] .tap-ripple { background: rgba(255, 252, 240, .45); }
   .rnd-card { padding: 32px 24px 28px; }
   .faq-item summary { padding: 22px 4px; gap: 16px; }
   .faq-item:hover summary { padding-left: 8px; }
-  .bot-row { grid-template-columns: 1fr; }
-  .bot { border-right: none; border-bottom: 1px solid var(--line); }
-  .bot:last-child { border-bottom: none; }
+  .bot-row { grid-template-columns: repeat(2, 1fr); }
+  .bot { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .bot:nth-child(2n) { border-right: none; }
+  .bot:nth-last-child(-n+2) { border-bottom: none; }
   .step-row { grid-template-columns: 1fr; }
   .step { border-right: none; border-bottom: 1px solid var(--line); }
   .step:last-child { border-bottom: none; }
@@ -2065,6 +2087,9 @@ button[type=submit] .tap-ripple { background: rgba(255, 252, 240, .45); }
   .method, .awards, .collection, .partners, .quote-section, .next { padding: 80px 0; }
   .partners { padding: 80px 24px; }
   .medal-row { grid-template-columns: 1fr; }
+  .bot-row { grid-template-columns: 1fr; }
+  .bot { border-right: none; }
+  .bot:nth-child(2n) { border-right: none; }
   .form-wrap { padding: 40px 24px; margin: -32px 16px 64px; }
   .form-page-hero { padding: 120px 24px 64px; }
   .field-row { grid-template-columns: 1fr; gap: 0; }
