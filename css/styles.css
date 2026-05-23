@@ -49,7 +49,7 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-*::selection { background: var(--wine); color: var(--sand); }
+*::selection { background: rgba(217, 168, 92, .35); color: inherit; }
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 body {
   font-family: var(--pretendard);
@@ -82,10 +82,10 @@ em, i, .italic, cite, address, dfn, var {
 
 .display-xl {
   font-family: var(--display);
-  font-weight: 400;
-  font-size: clamp(56px, 9.5vw, 160px);
-  line-height: 0.95;
-  letter-spacing: -0.025em;
+  font-weight: 300;
+  font-size: clamp(40px, 6.7vw, 112px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   color: var(--sand);
 }
 .display-xl em, .display-xl .italic {
