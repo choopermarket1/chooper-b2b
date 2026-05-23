@@ -591,11 +591,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .heritage .lede { margin-bottom: 80px; }
 .heritage-grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: 1fr;
   gap: 16px;
-  height: 80vh;
-  max-height: 720px;
+  height: 70vh;
+  max-height: 640px;
+  min-height: 460px;
   margin: 0;
   padding: 0 40px;
   max-width: 1440px;
@@ -609,7 +610,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin: 0;
 }
 .hg-large {
-  grid-row: 1 / 3;
+  grid-row: 1;
 }
 .hg-tile img {
   width: 100%;
@@ -1344,50 +1345,51 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   max-width: 720px;
   margin: -56px auto 100px;
   background: var(--paper);
-  padding: 64px 56px 48px;
+  padding: 56px 48px 40px;
   border: 1px solid var(--line);
   position: relative;
   z-index: 2;
   box-shadow: 0 24px 48px rgba(26, 20, 16, .08);
 }
 .form-section-title {
-  font-family: var(--inter);
-  font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 4px;
+  font-family: var(--pretendard);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -0.01em;
   color: var(--mustard);
-  text-transform: uppercase;
-  margin-bottom: 24px;
-  padding-bottom: 14px;
+  text-transform: none;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
   border-bottom: 1px solid var(--line);
 }
 
-.field { margin-bottom: 24px; }
+.field { margin-bottom: 20px; }
 .field label {
   display: block;
-  font-family: var(--inter);
-  font-weight: 500;
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: var(--ink-mute);
-  margin-bottom: 10px;
-  text-transform: uppercase;
+  font-family: var(--pretendard);
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: -0.005em;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+  text-transform: none;
 }
-.field label .req { color: var(--terra); margin-left: 3px; }
+.field label .req { color: var(--terra); margin-left: 3px; font-weight: 700; }
 .field input,
 .field textarea,
 .field select {
   width: 100%;
-  padding: 14px 0;
+  padding: 11px 0;
   font-family: var(--pretendard);
   font-weight: 400;
-  font-size: 16px;
+  font-size: 15px;
   color: var(--ink);
   background: transparent;
   border: none;
   border-bottom: 1px solid var(--line);
   border-radius: 0;
   transition: border-color .3s var(--ease);
+  letter-spacing: -0.005em;
 }
 .field input:focus,
 .field textarea:focus,
@@ -1517,9 +1519,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .menu { display: none; }
   .method-grid { grid-template-columns: 1fr; gap: 56px; }
   .medal-row { grid-template-columns: repeat(2, 1fr); }
-  .heritage-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; height: auto; max-height: none; }
-  .hg-large { grid-column: 1 / -1; grid-row: 1; aspect-ratio: 16 / 9; }
-  .hg-tile:not(.hg-large) { aspect-ratio: 1; }
+  .heritage-grid { grid-template-columns: 1fr; grid-template-rows: auto auto; height: auto; max-height: none; min-height: 0; }
+  .hg-large { grid-column: 1; grid-row: 1; aspect-ratio: 16 / 10; }
+  .hg-tile:not(.hg-large) { aspect-ratio: 4 / 3; }
   .bot-row { grid-template-columns: 1fr; }
   .bot { border-right: none; border-bottom: 1px solid var(--line); }
   .bot:last-child { border-bottom: none; }
