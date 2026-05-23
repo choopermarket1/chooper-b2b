@@ -410,44 +410,80 @@ em, i, .italic, cite, address, dfn, var {
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  padding: 18px 36px;
+  padding: 22px 42px;
+  font-family: var(--pretendard);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  border-radius: 6px;
+  transition: all .35s var(--ease);
+  position: relative;
+}
+.btn::after {
+  content: '→';
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity .25s var(--ease), right .25s var(--ease);
+}
+.btn:hover::after { opacity: 1; right: 14px; }
+.btn .btn-kr {
   font-family: var(--inter);
   font-weight: 500;
-  font-size: 13px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  border-radius: 0;
-  transition: all .35s var(--ease);
-}
-.btn .btn-kr {
-  font-family: var(--pretendard);
-  font-weight: 400;
   font-size: 10px;
   letter-spacing: 2px;
-  text-transform: none;
-  opacity: .75;
+  text-transform: uppercase;
+  opacity: .65;
 }
+
+/* PRIMARY — 무료 샘플 (강조) */
 .btn-cream {
-  background: var(--sand);
+  background: var(--mustard);
   color: var(--ink);
-  border: 1px solid var(--sand);
+  border: 2px solid var(--mustard);
+  box-shadow: 0 10px 28px rgba(201, 146, 61, .35);
+}
+.btn-cream::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 6px;
+  background: var(--mustard);
+  z-index: -1;
+  opacity: .35;
+  animation: ctaPulse 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes ctaPulse {
+  0%, 100% { opacity: .25; transform: scale(1); }
+  50% { opacity: .55; transform: scale(1.08); filter: blur(8px); }
 }
 .btn-cream:hover {
-  background: transparent;
-  color: var(--sand);
-  border-color: var(--sand);
+  background: var(--mustard-soft);
+  color: var(--ink);
+  border-color: var(--mustard-soft);
+  box-shadow: 0 14px 40px rgba(201, 146, 61, .5);
 }
-.btn-cream:hover .btn-kr { opacity: .65; }
+.btn-cream .btn-kr { opacity: .55; }
+
+/* SECONDARY — 제품 소개서 (보조) */
 .btn-line {
-  background: transparent;
+  background: rgba(255, 252, 240, .08);
   color: var(--sand);
-  border: 1px solid rgba(255, 252, 240, .5);
+  border: 2px solid rgba(255, 252, 240, .85);
+  backdrop-filter: blur(8px);
 }
 .btn-line:hover {
   background: var(--sand);
   color: var(--ink);
   border-color: var(--sand);
 }
+.btn-line .btn-kr { opacity: .7; }
 
 /* — Hero foot stats (vintner-style ledger) — */
 .hero-foot {
@@ -1839,10 +1875,13 @@ button[type=submit] {
   will-change: transform;
 }
 
-/* 호버 — 살짝 위로 떠오름 */
-.btn:hover, .nav-cta:hover, .sticky-cta:hover {
+/* 호버 — 살짝 위로 떠오름 (단, .btn 변종은 각자 그림자 유지) */
+.nav-cta:hover, .sticky-cta:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(26,20,16,.18);
+}
+.btn:hover {
+  transform: translateY(-3px);
 }
 
 /* 클릭 순간 — 눌리는 느낌 */
