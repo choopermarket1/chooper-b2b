@@ -820,64 +820,19 @@ em, i, .italic, cite, address, dfn, var {
 
 /* ═══════════ IN MOTION — 영상 섹션 ═══════════ */
 .motion {
-  background: var(--ink);
-  color: var(--sand);
-  padding: 0 0 120px;
-  isolation: isolate;
+  background: var(--bg-cream);
+  color: var(--ink);
+  padding: 120px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
-.motion-hero {
-  position: relative;
-  height: clamp(420px, 65vh, 720px);
-  overflow: hidden;
-  background: var(--ink);
-}
+.motion .chapter { margin-bottom: 32px; }
+.motion-title-text { margin-bottom: 24px; }
 .motion-vid {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-}
-.motion-vid-brand {
-  filter: brightness(.7) contrast(1.05) saturate(.82) sepia(.08);
-}
-.motion-hero-veil {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(26,20,16,.35) 0%, rgba(26,20,16,.2) 40%, rgba(26,20,16,.7) 100%);
-  pointer-events: none;
-}
-.motion-hero-text {
-  position: absolute;
-  inset: auto 0 0 0;
-  padding: 80px 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-.motion-kicker {
-  font-family: var(--inter);
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 6px;
-  color: var(--mustard);
-  text-transform: uppercase;
-}
-.motion-title {
-  font-family: var(--pretendard);
-  font-weight: 700;
-  font-size: clamp(28px, 4vw, 56px);
-  line-height: 1.2;
-  letter-spacing: -0.03em;
-  color: var(--sand);
-  text-align: center;
-  margin: 0;
-  word-break: keep-all;
-}
-.motion-title em {
-  font-style: normal;
-  font-weight: 700;
-  color: var(--mustard-soft);
 }
 
 /* Reels — 세로 영상 2개 */
@@ -886,7 +841,7 @@ em, i, .italic, cite, address, dfn, var {
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
   max-width: 880px;
-  margin: 80px auto 0;
+  margin: 64px auto 0;
 }
 .reel {
   position: relative;
@@ -911,7 +866,7 @@ em, i, .italic, cite, address, dfn, var {
   position: absolute;
   inset: auto 0 0 0;
   padding: 28px 22px 22px;
-  background: linear-gradient(180deg, transparent 0%, rgba(26,20,16,.85) 75%, rgba(26,20,16,.95) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(26,20,16,.78) 65%, rgba(26,20,16,.95) 100%);
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -935,7 +890,7 @@ em, i, .italic, cite, address, dfn, var {
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
-  color: rgba(255, 252, 240, .68);
+  color: rgba(255, 252, 240, .78);
   letter-spacing: -0.005em;
 }
 
@@ -1243,6 +1198,15 @@ em, i, .italic, cite, address, dfn, var {
   transition: transform .8s var(--ease);
 }
 .bot:hover .bot-img img { transform: translateY(-12px) scale(1.04); }
+
+/* 375ml 누끼는 실제 비율 반영해 75% 크기로 — 750ml과 시각 차별화 */
+.bot:nth-of-type(2) .bot-img img {
+  transform: scale(0.74);
+  transform-origin: center bottom;
+}
+.bot:nth-of-type(2):hover .bot-img img {
+  transform: translateY(-8px) scale(0.78);
+}
 
 .bot-text { text-align: left; }
 .bot-medal {
@@ -2192,9 +2156,8 @@ button[type=submit] .tap-ripple { background: rgba(255, 252, 240, .45); }
   .rnd-card { padding: 32px 24px 28px; }
   .faq-item summary { padding: 22px 4px; gap: 16px; }
   .faq-item:hover summary { padding-left: 8px; }
-  .motion-hero { height: clamp(280px, 50vh, 480px); }
-  .motion-hero-text { padding: 48px 24px; }
-  .reels-row { grid-template-columns: 1fr; gap: 24px; max-width: 360px; margin-top: 56px; }
+  .reels-row { grid-template-columns: 1fr; gap: 24px; max-width: 360px; margin-top: 48px; }
+  .motion { padding: 80px 0; }
   .bot-row { grid-template-columns: repeat(2, 1fr); }
   .bot { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .bot:nth-child(2n) { border-right: none; }
