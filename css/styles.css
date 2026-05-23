@@ -818,6 +818,127 @@ em, i, .italic, cite, address, dfn, var {
   word-break: keep-all;
 }
 
+/* ═══════════ IN MOTION — 영상 섹션 ═══════════ */
+.motion {
+  background: var(--ink);
+  color: var(--sand);
+  padding: 0 0 120px;
+  isolation: isolate;
+}
+.motion-hero {
+  position: relative;
+  height: clamp(420px, 65vh, 720px);
+  overflow: hidden;
+  background: var(--ink);
+}
+.motion-vid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.motion-vid-brand {
+  filter: brightness(.7) contrast(1.05) saturate(.82) sepia(.08);
+}
+.motion-hero-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26,20,16,.35) 0%, rgba(26,20,16,.2) 40%, rgba(26,20,16,.7) 100%);
+  pointer-events: none;
+}
+.motion-hero-text {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 80px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.motion-kicker {
+  font-family: var(--inter);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 6px;
+  color: var(--mustard);
+  text-transform: uppercase;
+}
+.motion-title {
+  font-family: var(--pretendard);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 56px);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--sand);
+  text-align: center;
+  margin: 0;
+  word-break: keep-all;
+}
+.motion-title em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--mustard-soft);
+}
+
+/* Reels — 세로 영상 2개 */
+.reels-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 880px;
+  margin: 80px auto 0;
+}
+.reel {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: var(--ink-soft);
+  aspect-ratio: 9 / 16;
+  border-radius: 12px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .35);
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.reel:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, .5);
+}
+.reel video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.reel figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 28px 22px 22px;
+  background: linear-gradient(180deg, transparent 0%, rgba(26,20,16,.85) 75%, rgba(26,20,16,.95) 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.reel-num {
+  font-family: var(--inter);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--mustard-soft);
+}
+.reel-name {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: -0.005em;
+  color: var(--sand);
+}
+.reel-sub {
+  font-family: var(--pretendard);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  color: rgba(255, 252, 240, .68);
+  letter-spacing: -0.005em;
+}
+
 /* ═══════════ HOOK — B2B 타겟 고객 ═══════════ */
 .hook {
   padding: 140px 0;
@@ -2065,6 +2186,9 @@ button[type=submit] .tap-ripple { background: rgba(255, 252, 240, .45); }
   .rnd-card { padding: 32px 24px 28px; }
   .faq-item summary { padding: 22px 4px; gap: 16px; }
   .faq-item:hover summary { padding-left: 8px; }
+  .motion-hero { height: clamp(280px, 50vh, 480px); }
+  .motion-hero-text { padding: 48px 24px; }
+  .reels-row { grid-template-columns: 1fr; gap: 24px; max-width: 360px; margin-top: 56px; }
   .bot-row { grid-template-columns: repeat(2, 1fr); }
   .bot { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .bot:nth-child(2n) { border-right: none; }
