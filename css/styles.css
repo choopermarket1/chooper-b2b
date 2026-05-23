@@ -368,13 +368,26 @@ em, i, .italic, cite, address, dfn, var {
 .hero-kr {
   font-family: var(--pretendard);
   font-weight: 500;
-  font-size: 22px;
-  line-height: 1.55;
+  font-size: clamp(17px, 1.65vw, 21px);
+  line-height: 1.7;
   color: rgba(255, 252, 240, .96);
-  letter-spacing: -0.005em;
-  margin-top: 40px;
+  letter-spacing: -0.015em;
+  margin-top: 32px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  word-break: keep-all;
   opacity: 0;
   animation: lineUp 1.2s var(--ease) 1s forwards;
+}
+.hero-kr .kr-line {
+  display: block;
+}
+.hero-kr .kr-line + .kr-line {
+  margin-top: 4px;
+  color: rgba(255, 252, 240, .78);
+  font-weight: 400;
 }
 .hero-kr .dot {
   color: var(--mustard-soft);
