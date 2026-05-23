@@ -308,7 +308,8 @@ em, i, .italic, cite, address, dfn, var {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(.42) contrast(1.05);
+  /* 럭셔리 톤: 따뜻한 sepia + 진한 그림자 + 채도 다운 */
+  filter: brightness(.46) contrast(1.12) saturate(.72) sepia(.08);
   animation: heroZoom 24s var(--ease-slow) forwards;
 }
 @keyframes heroZoom {
@@ -604,7 +605,7 @@ em, i, .italic, cite, address, dfn, var {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: contrast(1.05);
+  filter: contrast(1.08) saturate(.85) brightness(.96) sepia(.06);
   transition: transform 1.4s var(--ease);
 }
 .method-img:hover img { transform: scale(1.04); }
@@ -675,7 +676,7 @@ em, i, .italic, cite, address, dfn, var {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(.88) contrast(1.05);
+  filter: brightness(.85) contrast(1.1) saturate(.78) sepia(.08);
   transition: transform 1.4s var(--ease), filter .6s var(--ease);
 }
 .hg-tile:hover img {
@@ -894,7 +895,28 @@ em, i, .italic, cite, address, dfn, var {
   background: linear-gradient(180deg, var(--sand) 0%, var(--sand-deep) 100%);
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
+.awards-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.awards-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(.45) contrast(1.05) brightness(.92) sepia(.15);
+}
+.awards-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(241,229,205,.55) 0%, rgba(241,229,205,.92) 65%),
+    linear-gradient(180deg, var(--sand) 0%, rgba(241,229,205,.8) 50%, var(--sand-deep) 100%);
+}
+.awards > .container { position: relative; z-index: 1; }
 .awards::before {
   content: '';
   position: absolute;
@@ -1184,7 +1206,7 @@ em, i, .italic, cite, address, dfn, var {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(.4) contrast(1.05);
+  filter: brightness(.42) contrast(1.12) saturate(.72) sepia(.08);
 }
 .partners-veil {
   position: absolute;
@@ -1217,12 +1239,12 @@ em, i, .italic, cite, address, dfn, var {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(.72) saturate(.9);
+  filter: brightness(.7) contrast(1.08) saturate(.78) sepia(.1);
   transition: transform 1s var(--ease), filter .5s var(--ease);
 }
 .vn:hover img {
   transform: scale(1.06);
-  filter: brightness(.82) saturate(1);
+  filter: brightness(.82) contrast(1.1) saturate(.92) sepia(.05);
 }
 .vn figcaption {
   position: absolute;
@@ -1267,7 +1289,31 @@ em, i, .italic, cite, address, dfn, var {
   padding: 140px 0;
   background: var(--sand);
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
 }
+.quote-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.quote-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 럭셔리 톤: warm sepia + contrast + soft */
+  filter: saturate(.55) contrast(1.08) brightness(.88) sepia(.18);
+  transform: scale(1.04);
+}
+.quote-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, var(--sand) 0%, rgba(241,229,205,.65) 18%, rgba(241,229,205,.55) 50%, rgba(241,229,205,.78) 82%, var(--sand) 100%),
+    radial-gradient(circle at 50% 50%, rgba(241,229,205,.2) 0%, rgba(241,229,205,.7) 80%);
+}
+.quote-section > .container { position: relative; z-index: 1; }
 .qmark {
   display: block;
   font-family: var(--display);
@@ -1347,6 +1393,53 @@ em, i, .italic, cite, address, dfn, var {
 }
 .step:last-child { border-right: none; }
 .step:hover { background: var(--bg-cream); }
+
+/* 양옆 액센트 카드 */
+.step-olive {
+  background: linear-gradient(180deg, #EAEBD4 0%, #DFE2C2 100%);
+  color: var(--ink);
+}
+.step-olive:hover { background: linear-gradient(180deg, #E1E3C5 0%, #D3D7B1 100%); }
+.step-olive .step-num { color: var(--olive-deep); }
+.step-olive .step-icon { color: var(--olive); }
+.step-olive .step-arrow { color: var(--olive-deep); }
+
+.step-terra {
+  background: linear-gradient(180deg, #F4DBC8 0%, #ECC6AA 100%);
+  color: var(--ink);
+}
+.step-terra:hover { background: linear-gradient(180deg, #EFCDB3 0%, #E5B695 100%); }
+.step-terra .step-num { color: var(--wine); }
+.step-terra .step-icon { color: var(--terra); }
+.step-terra .step-arrow { color: var(--wine); }
+
+.step-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 252, 240, .55);
+  margin-bottom: 24px;
+  transition: transform .35s var(--ease), background .35s var(--ease);
+}
+.step:hover .step-icon {
+  transform: rotate(-6deg) scale(1.08);
+  background: rgba(255, 252, 240, .85);
+}
+
+.step-arrow {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 18px;
+  font-family: var(--inter);
+  font-weight: 500;
+  font-size: 22px;
+  transition: transform .25s var(--ease);
+  align-self: flex-start;
+}
+.step:hover .step-arrow { transform: translateX(6px); }
 .step-feature {
   background: linear-gradient(180deg, #2A1F1A 0%, #14100C 100%);
   color: var(--sand);
