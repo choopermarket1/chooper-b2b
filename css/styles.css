@@ -1012,8 +1012,8 @@ em, i, .italic, cite, address, dfn, var {
   gap: 16px;
 }
 .med {
-  background: var(--paper);
-  border: 1px solid var(--line);
+  background: transparent;
+  border: none;
   display: flex;
   flex-direction: column;
   transition: all .4s var(--ease);
@@ -1021,23 +1021,23 @@ em, i, .italic, cite, address, dfn, var {
 }
 .med:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 48px rgba(26, 20, 16, .12);
-  border-color: var(--mustard);
 }
 .med-frame {
   aspect-ratio: 3 / 4;
-  background: var(--white);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   padding: 16px;
-  border-bottom: 1px solid var(--line-light);
+  border-bottom: none;
 }
 .med-frame img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 8px 18px rgba(26, 20, 16, .12));
 }
 .med-meta {
   padding: 24px 20px 28px;
