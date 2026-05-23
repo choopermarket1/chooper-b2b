@@ -663,6 +663,77 @@ em, i, .italic, cite, address, dfn, var {
 .hg-large .hg-label { font-size: 11px; }
 .hg-large .hg-place { font-size: 22px; }
 
+/* ═══════════ HOOK — B2B 타겟 고객 ═══════════ */
+.hook {
+  padding: 140px 0;
+  background: var(--bg-cream);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.hook .display-l { margin-bottom: 24px; }
+.hook .lede { margin-bottom: 64px; }
+.hook-list {
+  list-style: none;
+  max-width: 880px;
+  margin: 0 auto 56px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.hook-list li {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  align-items: center;
+  gap: 28px;
+  padding: 28px 8px;
+  border-bottom: 1px solid var(--line);
+  transition: background .25s var(--ease), padding-left .25s var(--ease);
+}
+.hook-list li:first-child { border-top: 1px solid var(--line); }
+.hook-list li:hover {
+  background: var(--paper);
+  padding-left: 24px;
+}
+.hk-num {
+  font-family: var(--inter);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--terra);
+}
+.hook-list b {
+  font-family: var(--pretendard);
+  font-weight: 700;
+  font-size: clamp(20px, 2vw, 26px);
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+.hook-list i {
+  font-family: var(--pretendard);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--ink-mute);
+  letter-spacing: -0.01em;
+  text-align: right;
+  word-break: keep-all;
+}
+.hook-close {
+  font-family: var(--pretendard);
+  font-weight: 600;
+  font-size: clamp(20px, 2.4vw, 30px);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  text-align: center;
+  margin: 0;
+  word-break: keep-all;
+}
+.hook-close em {
+  color: var(--wine);
+  font-weight: 800;
+}
+
 /* ═══════════ AWARDS ═══════════ */
 .awards {
   padding: 140px 0;
@@ -1550,6 +1621,8 @@ em, i, .italic, cite, address, dfn, var {
   .heritage-grid { grid-template-columns: 1fr; grid-template-rows: auto auto; height: auto; max-height: none; min-height: 0; }
   .hg-large { grid-column: 1; grid-row: 1; aspect-ratio: 16 / 10; }
   .hg-tile:not(.hg-large) { aspect-ratio: 4 / 3; }
+  .hook-list li { grid-template-columns: 40px 1fr; row-gap: 4px; }
+  .hook-list i { grid-column: 2; text-align: left; font-size: 14px; }
   .bot-row { grid-template-columns: 1fr; }
   .bot { border-right: none; border-bottom: 1px solid var(--line); }
   .bot:last-child { border-bottom: none; }
