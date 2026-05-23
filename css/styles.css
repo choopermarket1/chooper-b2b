@@ -1568,8 +1568,28 @@ em, i, .italic, cite, address, dfn, var {
   box-shadow: 0 32px 70px rgba(26, 20, 16, .5), 0 0 0 1px var(--mustard);
 }
 .step-feature h3 {
-  color: var(--mustard-soft);
-  font-size: clamp(26px, 2.4vw, 34px);
+  color: var(--sand);
+  font-family: var(--pretendard);
+  font-weight: 900;
+  font-size: clamp(32px, 3vw, 44px);
+  letter-spacing: -0.035em;
+  text-shadow:
+    0 0 28px rgba(217, 168, 92, .55),
+    0 0 6px rgba(217, 168, 92, .35),
+    0 2px 8px rgba(0, 0, 0, .5);
+  position: relative;
+  z-index: 2;
+  margin-bottom: 18px;
+}
+.step-feature h3::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--mustard);
+  margin-top: 14px;
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(217, 168, 92, .6);
 }
 .step-feature .step-num { color: var(--mustard); font-weight: 600; }
 .step-feature .step-kr {
