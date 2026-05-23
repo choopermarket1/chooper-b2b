@@ -229,3 +229,136 @@ fadeTargets.forEach((el, i) => {
   el.style.transition = `opacity .8s cubic-bezier(.16,1,.3,1) ${i * 60}ms, transform .8s cubic-bezier(.16,1,.3,1) ${i * 60}ms`;
   observer.observe(el);
 });
+
+// ═══════════════════════════════════════════════════════════════
+// 🔊 클릭감 + 사운드 — 리플 효과 + Web Audio 클릭음
+// ═══════════════════════════════════════════════════════════════
+
+const TACTILE_SELECTOR = '.btn, .nav-cta, .sticky-cta, .float-btn, .step, .vn, .rnd-card, .faq-item summary, button[type=submit], a.btn-cream, a.btn-line';
+
+// ───────── Web Audio 컨텍스트 (lazy init on first gesture) ─────────
+let audioCtx = null;
+let soundEnabled = true;
+
+function ensureAudio() {
+  if (audioCtx) return audioCtx;
+  try {
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if (!Ctx) return null;
+    audioCtx = new Ctx();
+  } catch (_) {
+    return null;
+  }
+  return audioCtx;
+}
+
+function playClickSound(opts = {}) {
+  if (!soundEnabled) return;
+  const ctx = ensureAudio();
+  if (!ctx) return;
+  if (ctx.state === 'suspended') ctx.resume();
+
+  const now = ctx.currentTime;
+  const isHeavy = opts.heavy === true;
+
+  // 1) 낮은 톡(투명한 어택)
+  const osc1 = ctx.createOscillator();
+  const gain1 = ctx.createGain();
+  osc1.type = 'sine';
+  osc1.frequency.setValueAtTime(isHeavy ? 180 : 220, now);
+  osc1.frequency.exponentialRampToValueAtTime(isHeavy ? 60 : 80, now + 0.08);
+  gain1.gain.setValueAtTime(0.0001, now);
+  gain1.gain.exponentialRampToValueAtTime(isHeavy ? 0.18 : 0.12, now + 0.005);
+  gain1.gain.exponentialRampToValueAtTime(0.0001, now + 0.09);
+  osc1.connect(gain1).connect(ctx.destination);
+  osc1.start(now);
+  osc1.stop(now + 0.1);
+
+  // 2) 높은 핑(소프트 클릭 sparkle)
+  const osc2 = ctx.createOscillator();
+  const gain2 = ctx.createGain();
+  osc2.type = 'triangle';
+  osc2.frequency.setValueAtTime(isHeavy ? 900 : 1400, now);
+  osc2.frequency.exponentialRampToValueAtTime(isHeavy ? 600 : 1000, now + 0.05);
+  gain2.gain.setValueAtTime(0.0001, now);
+  gain2.gain.exponentialRampToValueAtTime(isHeavy ? 0.04 : 0.06, now + 0.003);
+  gain2.gain.exponentialRampToValueAtTime(0.0001, now + 0.06);
+  osc2.connect(gain2).connect(ctx.destination);
+  osc2.start(now);
+  osc2.stop(now + 0.07);
+}
+
+// ───────── 호버 사운드 (살짝 더 조용) ─────────
+function playHoverSound() {
+  if (!soundEnabled) return;
+  const ctx = ensureAudio();
+  if (!ctx) return;
+  if (ctx.state === 'suspended') return; // 첫 제스처 전엔 호버 무시
+
+  const now = ctx.currentTime;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(2200, now);
+  gain.gain.setValueAtTime(0.0001, now);
+  gain.gain.exponentialRampToValueAtTime(0.025, now + 0.002);
+  gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.04);
+  osc.connect(gain).connect(ctx.destination);
+  osc.start(now);
+  osc.stop(now + 0.05);
+}
+
+// ───────── 리플 생성 ─────────
+function spawnRipple(e) {
+  const target = e.currentTarget;
+  if (!target) return;
+  const rect = target.getBoundingClientRect();
+  const size = Math.max(rect.width, rect.height);
+  // 클릭 좌표 (touch / mouse 둘 다 대응)
+  const point = e.touches?.[0] || e.changedTouches?.[0] || e;
+  const x = (point.clientX || rect.left + rect.width/2) - rect.left - size/2;
+  const y = (point.clientY || rect.top + rect.height/2) - rect.top - size/2;
+
+  const ripple = document.createElement('span');
+  ripple.className = 'tap-ripple';
+  ripple.style.width = ripple.style.height = `${size}px`;
+  ripple.style.left = `${x}px`;
+  ripple.style.top = `${y}px`;
+
+  // overflow:hidden 강제 (스타일 충돌 회피)
+  const prevPos = getComputedStyle(target).position;
+  if (prevPos === 'static') target.style.position = 'relative';
+  const prevOverflow = getComputedStyle(target).overflow;
+  if (prevOverflow !== 'hidden') target.style.overflow = 'hidden';
+
+  target.appendChild(ripple);
+  setTimeout(() => ripple.remove(), 600);
+}
+
+// ───────── 바인딩 ─────────
+function bindTactile() {
+  document.querySelectorAll(TACTILE_SELECTOR).forEach(el => {
+    if (el.dataset.tactileBound) return;
+    el.dataset.tactileBound = '1';
+
+    el.addEventListener('pointerdown', (e) => {
+      spawnRipple(e);
+      const heavy = el.classList.contains('float-btn') || el.tagName === 'BUTTON';
+      playClickSound({ heavy });
+      // 햅틱 (모바일)
+      if (navigator.vibrate) navigator.vibrate(heavy ? 18 : 10);
+    });
+
+    el.addEventListener('mouseenter', playHoverSound);
+  });
+}
+
+bindTactile();
+// 동적으로 추가되는 요소(토스트 등)는 한 번 더 바인딩
+setTimeout(bindTactile, 1500);
+
+// ───────── 사운드 토글 (선택) ─────────
+window.toggleClickSound = () => {
+  soundEnabled = !soundEnabled;
+  console.log('CHOOPER click sound:', soundEnabled ? 'ON' : 'OFF');
+};

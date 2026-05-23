@@ -1744,6 +1744,76 @@ em, i, .italic, cite, address, dfn, var {
   color: var(--wine);
 }
 
+/* ═══════════ TACTILE — 클릭감 ═══════════ */
+.btn, .nav-cta, .sticky-cta, .float-btn,
+.step, .bot, .vn, .hg-tile, .med,
+.rnd-card, .hook-list li, .faq-item summary,
+button[type=submit] {
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .18s cubic-bezier(.34,1.56,.64,1), box-shadow .25s var(--ease), background .25s var(--ease), filter .25s var(--ease);
+  position: relative;
+  will-change: transform;
+}
+
+/* 호버 — 살짝 위로 떠오름 */
+.btn:hover, .nav-cta:hover, .sticky-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(26,20,16,.18);
+}
+
+/* 클릭 순간 — 눌리는 느낌 */
+.btn:active, .nav-cta:active, .sticky-cta:active,
+.float-btn:active,
+button[type=submit]:active,
+.step:active, .bot:active, .vn:active,
+.rnd-card:active, .hg-tile:active, .med:active {
+  transform: scale(.94) translateY(0);
+  transition-duration: .08s;
+  box-shadow: 0 1px 4px rgba(26,20,16,.25);
+}
+
+/* 플로팅 아이콘 — 호버 시 회전·확대 */
+.float-btn {
+  cursor: pointer;
+  user-select: none;
+}
+.float-btn:hover {
+  transform: scale(1.12) rotate(-6deg);
+  box-shadow: 0 12px 30px rgba(26,20,16,.4);
+  filter: brightness(1.08);
+}
+.float-btn:active {
+  transform: scale(.88) rotate(0deg);
+}
+
+/* 리플 (클릭 시 퍼지는 원) */
+.tap-ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple .55s linear;
+  background: rgba(255, 255, 255, .55);
+  pointer-events: none;
+  z-index: 5;
+}
+.float-btn .tap-ripple { background: rgba(255, 255, 255, .7); }
+.btn-cream .tap-ripple,
+.step-feature .tap-ripple,
+button[type=submit] .tap-ripple { background: rgba(255, 252, 240, .45); }
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* 카드류 호버 그림자 */
+.rnd-card:hover, .step:hover {
+  box-shadow: 0 14px 40px rgba(26,20,16,.12);
+  transform: translateY(-4px);
+}
+
 /* ═══════════ RESPONSIVE ═══════════ */
 @media (max-width: 1024px) {
   .menu { display: none; }
