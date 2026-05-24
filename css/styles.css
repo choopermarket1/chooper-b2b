@@ -1037,49 +1037,57 @@ em, i, .italic, cite, address, dfn, var {
   max-height: 100%;
   object-fit: contain;
   mix-blend-mode: multiply;
-  filter: drop-shadow(0 8px 18px rgba(26, 20, 16, .12));
+  filter: drop-shadow(0 8px 18px rgba(26, 20, 16, .12)) contrast(1.05);
+}
+/* Monde Selection (N°02) — multiply + darken 이중 처리로 흰 배경 완전 제거 */
+.med:nth-child(2) .med-frame {
+  isolation: isolate;
+}
+.med:nth-child(2) .med-frame img {
+  mix-blend-mode: darken;
+  filter: drop-shadow(0 8px 18px rgba(26, 20, 16, .18)) contrast(1.08) saturate(1.05);
 }
 .med-meta {
-  padding: 24px 20px 28px;
+  padding: 28px 20px 32px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
   text-align: center;
 }
 .med-year {
   font-family: var(--inter);
-  font-weight: 500;
-  font-size: 10px;
-  letter-spacing: 3px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 4px;
   color: var(--mustard);
   text-transform: uppercase;
 }
 .med-rank {
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: 24px;
+  font-family: var(--pretendard);
+  font-weight: 800;
+  font-size: 32px;
   font-style: normal;
-  letter-spacing: 0.5px;
+  letter-spacing: -0.025em;
   color: var(--wine);
-  line-height: 1;
+  line-height: 1.1;
   margin: 4px 0 8px;
 }
 .med-name {
   font-family: var(--pretendard);
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: -0.01em;
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: -0.02em;
   color: var(--ink);
-  line-height: 1.35;
+  line-height: 1.3;
 }
 .med-cat {
-  font-family: var(--inter);
-  font-weight: 400;
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  color: var(--ink-mute);
-  text-transform: uppercase;
-  line-height: 1.5;
+  font-family: var(--pretendard);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: -0.005em;
+  color: var(--ink-soft);
+  text-transform: none;
+  line-height: 1.55;
   margin-top: 2px;
 }
 
