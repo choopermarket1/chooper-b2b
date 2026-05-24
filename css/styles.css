@@ -1039,13 +1039,10 @@ em, i, .italic, cite, address, dfn, var {
   mix-blend-mode: multiply;
   filter: drop-shadow(0 8px 18px rgba(26, 20, 16, .12)) contrast(1.05);
 }
-/* Monde Selection (N°02) — multiply + darken 이중 처리로 흰 배경 완전 제거 */
-.med:nth-child(2) .med-frame {
-  isolation: isolate;
-}
+/* Monde Selection (N°02) — SVG filter로 흰색 픽셀 → 알파 0 */
 .med:nth-child(2) .med-frame img {
-  mix-blend-mode: darken;
-  filter: drop-shadow(0 8px 18px rgba(26, 20, 16, .18)) contrast(1.08) saturate(1.05);
+  mix-blend-mode: normal;
+  filter: url(#kill-white) drop-shadow(0 8px 18px rgba(26, 20, 16, .18));
 }
 .med-meta {
   padding: 28px 20px 32px;
