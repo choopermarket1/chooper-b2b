@@ -59,7 +59,7 @@ document.querySelectorAll('form[data-form]').forEach(form => {
       submitBtn.textContent = '✓ 접수 완료';
       setTimeout(() => {
         submitBtn.disabled = false;
-        const labels = { brochure: '제품 소개서 받기', sample: '무료 샘플 신청', inquiry: '거래 문의 보내기' };
+        const labels = { brochure: '제품 소개서 받기', sample: '샘플 킷 신청', inquiry: '거래 문의 보내기' };
         submitBtn.textContent = labels[formType] || '제출';
       }, 4000);
     } catch (err) {
