@@ -1279,13 +1279,13 @@ em, i, .italic, cite, address, dfn, var {
 }
 .bot:hover .bot-img img { transform: translateY(-12px) scale(1.04); }
 
-/* 375ml 누끼는 실제 비율 반영해 75% 크기로 — 750ml과 시각 차별화 */
+/* 375ml은 배경 여백 있는 마케팅 컷이라 시각 50%로 — 다른 누끼와 균질화 */
 .bot:nth-of-type(2) .bot-img img {
-  transform: scale(0.74);
+  transform: scale(0.52);
   transform-origin: center bottom;
 }
 .bot:nth-of-type(2):hover .bot-img img {
-  transform: translateY(-8px) scale(0.78);
+  transform: translateY(-8px) scale(0.56);
 }
 
 .bot-text { text-align: left; }
