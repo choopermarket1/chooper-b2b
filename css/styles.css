@@ -472,6 +472,19 @@ em, i, .italic, cite, address, dfn, var {
 }
 .btn-cream .btn-kr { opacity: .55; }
 
+/* 통합 단일 CTA — 더 굵직하게 */
+.btn-unified {
+  font-size: 20px !important;
+  padding: 26px 56px !important;
+  letter-spacing: -0.02em !important;
+  border-radius: 8px !important;
+}
+.btn-unified .btn-kr {
+  margin-top: 6px;
+  font-size: 11px !important;
+  letter-spacing: 3px !important;
+}
+
 /* SECONDARY — 제품 소개서 (보조) */
 .btn-line {
   background: rgba(255, 252, 240, .08);
