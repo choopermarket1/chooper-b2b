@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=League+Gothic&display=swap" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css" />
-<link rel="stylesheet" href="css/styles.css?v=30">
+<link rel="stylesheet" href="css/styles.css?v=39">
 </head>
 <body class="form-page">
 
@@ -64,15 +64,18 @@
         <input type="text" name="address" required placeholder="우편번호 / 도로명 / 상세 주소" />
       </div>
 
-      <p class="form-section-title" style="margin-top: 32px;">관심 라인</p>
-      <div class="field">
-        <label>샘플로 받고 싶은 제품 (복수 선택)</label>
-        <div class="checks">
-          <label class="check-pill"><input type="checkbox" name="interest" value="샤인로제" />샤인 로제</label>
-          <label class="check-pill"><input type="checkbox" name="interest" value="버블리샹그리아" />버블리 샹그리아</label>
-          <label class="check-pill"><input type="checkbox" name="interest" value="선셋스프리츠" />선셋 스프리츠</label>
-          <label class="check-pill"><input type="checkbox" name="interest" value="3종세트" />3종 모두</label>
+      <p class="form-section-title" style="margin-top: 32px;">샘플 구성</p>
+      <div class="field kit-fixed">
+        <div class="kit-card">
+          <span class="kit-label">3종 샘플 킷</span>
+          <ul class="kit-items">
+            <li>샤인 로제 <span>· Shine Rosé</span></li>
+            <li>버블리 피치 샹그리아 <span>· Bubbly Sangria</span></li>
+            <li>선셋 스프리츠 <span>· Sunset Spritz</span></li>
+          </ul>
+          <p class="kit-note">사업자 1회 한정 · 평일 1~2일 내 발송 · 배송비 별도 안내</p>
         </div>
+        <input type="hidden" name="kit" value="3종 샘플 킷 (Shine Rosé · Bubbly Sangria · Sunset Spritz)" />
       </div>
       <div class="field">
         <label>활용 예정 (선택)</label>
