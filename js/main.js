@@ -3,7 +3,7 @@
 // 폼 제출 + 5가지 전환 치트키
 // ═══════════════════════════════════════════════════════════════
 
-const APPS_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEBAPP_URL';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbySax1yK7vj-NFDiqRv6AUYJEHh8IwUcqadW7RzvNDsNdQ9dBqgQ38Jqnb2LzbsImN-SQ/exec';
 
 // ───────── 폼 제출 ─────────
 document.querySelectorAll('form[data-form]').forEach(form => {
