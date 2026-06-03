@@ -11,14 +11,35 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=League+Gothic&display=swap" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css" />
 <link rel="stylesheet" href="css/styles.css?v=40">
+<style>
+  /* 손그림(색연필) 강조 동그라미 */
+  .hl { position: relative; display: inline-block; white-space: nowrap; }
+  .hl > .ring {
+    position: absolute; left: -14%; top: -24%;
+    width: 128%; height: 152%;
+    overflow: visible; pointer-events: none;
+  }
+  .hl > .ring path {
+    fill: none; stroke: #E8B04B; stroke-width: 4;
+    stroke-linecap: round; stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+    stroke-dasharray: 820; stroke-dashoffset: 820;
+    animation: drawRing 1s ease .4s forwards;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,.25));
+  }
+  @keyframes drawRing { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .hl > .ring path { animation: none; stroke-dashoffset: 0; }
+  }
+</style>
 </head>
 <body class="form-page">
 
 <section class="form-page-hero">
   <a href="index.html" class="form-back">← 메인으로</a>
   <p class="overline center">SAMPLE KIT + TRADE BROCHURE</p>
-  <h1>샘플 킷과 제품 소개서를<br>한 번에 받아보세요.</h1>
-  <p>샤인 로제 · 버블리 샹그리아 · 선셋 스프리츠 3종 샘플 + 도매가·MOQ·납기·HACCP 제품 소개서.<br>사업자번호 확인 후 평일 1~2일 내 발송 · 배송비 별도 안내.</p>
+  <h1>샘플 킷과 제품 소개서를<br><span class="hl">한 번에<svg class="ring" viewBox="0 0 240 100" preserveAspectRatio="none" aria-hidden="true"><path d="M40,22 C95,8 165,8 205,26 C232,38 224,66 180,78 C120,93 55,90 28,68 C10,53 18,30 55,18 C90,8 150,9 198,21"/></svg></span> 받아보세요.</h1>
+  <p>샤인 로제 · 버블리 샹그리아 · 선셋 스프리츠 3종 샘플<br>+ 도매가·MOQ·납기·HACCP 제품 소개서.<br>사업자번호 확인 후 평일 1~2일 내 발송 · 배송비 별도 안내.</p>
 </section>
 
 <div>
