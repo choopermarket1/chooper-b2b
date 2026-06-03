@@ -1279,6 +1279,19 @@ em, i, .italic, cite, address, dfn, var {
 }
 .bot:hover .bot-img img { transform: translateY(-12px) scale(1.04); }
 
+/* 제품 카드 수상 뱃지 오버레이 (좌상단) */
+.bot-badges {
+  position: absolute; top: 6px; left: 6px; z-index: 3;
+  display: flex; flex-direction: column; gap: 6px;
+  pointer-events: none;
+}
+.bot-badges .bot-badge {
+  height: 54px !important; width: auto !important; max-width: none !important;
+  display: block; object-fit: contain;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,.22));
+}
+@media (max-width: 600px) { .bot-badges .bot-badge { height: 44px !important; } }
+
 .bot-text { text-align: left; }
 .bot-medal {
   font-family: var(--inter);
