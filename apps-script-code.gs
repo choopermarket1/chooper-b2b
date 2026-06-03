@@ -54,27 +54,40 @@ function doGet() {
 }
 
 // ============ 시트 저장 ============
+// 모든 접수를 "첫 번째 시트(시트1)" 한 곳에 기재.
+// 폼 종류별로 컬럼이 달라도, 새 항목이 나오면 헤더에 자동으로 컬럼을 추가함.
 function saveToSheet(formType, data) {
   const ss = SpreadsheetApp.openById(SHEET_ID);
-  const sheetName = `B2B_${formType}`;
-  let sheet = ss.getSheetByName(sheetName);
-  if (!sheet) {
-    sheet = ss.insertSheet(sheetName);
-    // 헤더
-    const headers = ['수신일시', ...Object.keys(data).filter(k => !k.startsWith('_'))];
-    sheet.appendRow(headers);
-    sheet.getRange(1, 1, 1, headers.length).setFontWeight('bold').setBackground('#5A1A2A').setFontColor('#F5F0E6');
-    sheet.setFrozenRows(1);
+  const sheet = ss.getSheets()[0]; // 맨 앞 시트(시트1)에 저장
+
+  const labels = { brochure: '소개서', sample: '샘플', inquiry: '거래문의' };
+
+  // 현재 헤더 읽기 (없으면 기본 헤더 생성)
+  let lastCol = sheet.getLastColumn();
+  let headers = lastCol > 0 ? sheet.getRange(1, 1, 1, lastCol).getValues()[0] : [];
+  if (headers.length === 0 || headers.join('') === '') {
+    headers = ['수신일시', '폼종류'];
   }
 
-  // row append
-  const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+  // data의 새 필드를 헤더에 추가
+  const dataKeys = Object.keys(data).filter(k => !k.startsWith('_'));
+  dataKeys.forEach(k => { if (headers.indexOf(k) === -1) headers.push(k); });
+
+  // 헤더 행 기록 + 스타일
+  sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
+  sheet.getRange(1, 1, 1, headers.length)
+       .setFontWeight('bold').setBackground('#5A1A2A').setFontColor('#F5F0E6');
+  sheet.setFrozenRows(1);
+
+  // 데이터 행 추가
   const row = headers.map(h => {
     if (h === '수신일시') return new Date();
-    return data[h] || '';
+    if (h === '폼종류') return labels[formType] || formType;
+    return data[h] !== undefined ? data[h] : '';
   });
   sheet.appendRow(row);
-  // 새 row 하이라이트
+
+  // 새 행 하이라이트
   const lastRow = sheet.getLastRow();
   sheet.getRange(lastRow, 1, 1, headers.length).setBackground('#FFF4D6');
 }
