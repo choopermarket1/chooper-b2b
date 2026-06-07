@@ -54,6 +54,8 @@ document.querySelectorAll('form[data-form]').forEach(form => {
         status.classList.add('success');
         status.innerHTML = '✓ 신청이 접수되었습니다.<br>1영업일 내 등록하신 이메일로 회신드리겠습니다.';
       }
+      // Meta Pixel — 전환(리드) 이벤트
+      if (window.fbq) fbq('track', 'Lead', { content_name: formType, content_category: 'b2b_form' });
       form.reset();
       if (typeof updateQuote === 'function') updateQuote();
       submitBtn.textContent = '✓ 접수 완료';
@@ -204,6 +206,9 @@ document.getElementById('exitForm')?.addEventListener('submit', async (e) => {
   const subject = '[CHOOPER B2B] 제품 소개서 요청 (Exit 팝업)';
   const body = `이메일: ${email}\n\n자동: 이탈 시점 소개서 요청`;
   const mailto = `mailto:choopermarket1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  // Meta Pixel — 전환(리드) 이벤트 (이탈 팝업 소개서 요청)
+  if (window.fbq) fbq('track', 'Lead', { content_name: 'exit_brochure', content_category: 'b2b_form' });
 
   setTimeout(() => {
     window.open(mailto, '_blank');
