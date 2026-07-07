@@ -136,7 +136,7 @@ function sendBrochure(data) {
         <div style="text-align:center;margin:32px 0;">
           <a href="${BROCHURE_PDF_URL}" style="display:inline-block;background:#5A1A2A;color:#F5F0E6;padding:16px 32px;border-radius:999px;text-decoration:none;font-weight:500;">📄 소개서 PDF 다운로드</a>
         </div>
-        <p>샘플이 필요하시면 <a href="https://b2b.laurenchoo.kr/sample.html">샘플킷 신청</a> (소비자가 79,200원 상당 4병 → 첫 거래 한정 19,600원 · 배송비 별도)을 이용해 주세요.</p>
+        <p>샘플이 필요하시면 <a href="https://choopermarket.co.kr/sample.html">샘플킷 신청</a> (소비자가 79,200원 상당 4병 → 첫 거래 한정 19,600원 · 배송비 별도)을 이용해 주세요.</p>
         <p style="margin-top:32px;color:#5A463A;font-size:14px;">
           로렌츄컴퍼니 · choopermarket1@gmail.com<br>
           <span style="font-family:'Cormorant Garamond';letter-spacing:4px;font-size:12px;">CHOOPER MARKET B2B</span>
