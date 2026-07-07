@@ -136,7 +136,7 @@ function sendBrochure(data) {
         <div style="text-align:center;margin:32px 0;">
           <a href="${BROCHURE_PDF_URL}" style="display:inline-block;background:#5A1A2A;color:#F5F0E6;padding:16px 32px;border-radius:999px;text-decoration:none;font-weight:500;">📄 소개서 PDF 다운로드</a>
         </div>
-        <p>샘플이 필요하시면 회신 또는 <a href="https://b2b.laurenchoo.kr/sample.html">무료 샘플 신청</a>으로 보내주세요.</p>
+        <p>샘플이 필요하시면 <a href="https://b2b.laurenchoo.kr/sample.html">샘플킷 신청</a> (소비자가 79,200원 상당 4병 → 첫 거래 한정 19,600원 · 배송비 별도)을 이용해 주세요.</p>
         <p style="margin-top:32px;color:#5A463A;font-size:14px;">
           로렌츄컴퍼니 · choopermarket1@gmail.com<br>
           <span style="font-family:'Cormorant Garamond';letter-spacing:4px;font-size:12px;">CHOOPER MARKET B2B</span>
@@ -148,27 +148,33 @@ function sendBrochure(data) {
 }
 
 function sendSampleConfirmation(data) {
-  const subject = '[로렌츄컴퍼니] 샘플 신청이 접수되었습니다';
+  const subject = '[로렌츄컴퍼니] 샘플킷 1+1 주문 안내 — 신청이 접수되었습니다';
   const html = `
     <div style="font-family:'Noto Sans KR',sans-serif;color:#2C1A14;max-width:600px;">
       <div style="background:#5A1A2A;color:#F5F0E6;padding:32px;text-align:center;">
         <div style="font-family:'Cormorant Garamond';letter-spacing:6px;font-size:13px;">LAURENCHOO COMPANY</div>
-        <h1 style="font-family:'Noto Serif KR';margin:12px 0 0;font-weight:600;">샘플 신청 접수</h1>
+        <h1 style="font-family:'Noto Serif KR';margin:12px 0 0;font-weight:600;">샘플킷 1+1 주문 안내</h1>
       </div>
       <div style="padding:32px;background:#fff;line-height:1.8;">
         <p>${data.name || '담당자'}님, 안녕하세요.</p>
-        <p>샘플 신청이 정상적으로 접수되었습니다. 사업자번호 확인 후 평일 1~2일 내 발송 안내 메일을 다시 보내드리겠습니다.</p>
+        <p>신청이 정상적으로 접수되었습니다. 아래 버튼에서 <strong>샘플킷 — 소비자가 79,200원 상당 샘플 4병을 첫 거래 한정 19,600원 (배송비 별도)</strong>에 바로 주문하실 수 있습니다. 종류는 자유 조합 가능합니다 (예: 뱅쇼 대신 버블리 2병). 결제 확인 후 평일 1~2일 내 출고됩니다.</p>
+        <div style="text-align:center;margin:28px 0;">
+          <a href="https://smartstore.naver.com/choopermarket/products/13628619061" style="display:inline-block;background:#5A1A2A;color:#F5F0E6;padding:16px 32px;border-radius:999px;text-decoration:none;font-weight:600;">🍷 샘플킷 4병 주문하기 (19,600원)</a>
+        </div>
+        <div style="text-align:center;margin:0 0 24px;">
+          <a href="https://drive.google.com/drive/folders/1udDT-KH2_r17-y_plAN1tENTigHiSXpv?usp=sharing" style="display:inline-block;border:1px solid #5A1A2A;color:#5A1A2A;padding:12px 28px;border-radius:999px;text-decoration:none;font-weight:500;">📄 제품 소개서 · B2B 견적서 다운로드</a>
+        </div>
         <div style="background:#F5F0E6;padding:20px;border-radius:6px;margin:24px 0;">
           <p style="margin:0;font-size:14px;"><strong>신청 내역</strong></p>
           <p style="margin:8px 0 0;font-size:14px;color:#5A463A;">
             회사: ${data.company || '-'}<br>
-            관심 카테고리: ${data.interest || '-'}<br>
             배송지: ${data.address || '-'}
           </p>
         </div>
-        <p>그 사이 더 궁금한 점이 있으시면 회신 또는 <a href="https://b2b.laurenchoo.kr/inquiry.html">거래 문의</a>로 보내주세요.</p>
+        <p>상시발주는 375ml 기준 병당 9,800원(부가세 포함, 배송비 별도 · 종류 무관 6병 이상)이며, 궁금하신 점은 본 메일에 회신만 주세요.</p>
         <p style="margin-top:32px;color:#5A463A;font-size:14px;">
-          로렌츄컴퍼니 · choopermarket1@gmail.com
+          로렌츄컴퍼니 대표 추세은 · choopermarket1@gmail.com<br>
+          Tel. 010 2164 2848 (카카오톡 packjigi)
         </p>
       </div>
     </div>

@@ -52,7 +52,9 @@ document.querySelectorAll('form[data-form]').forEach(form => {
 
       if (status) {
         status.classList.add('success');
-        status.innerHTML = '✓ 신청이 접수되었습니다.<br>1영업일 내 등록하신 이메일로 회신드리겠습니다.';
+        status.innerHTML = formType === 'sample'
+          ? '✓ 신청이 접수되었습니다.<br>제품 소개서와 주문 안내를 이메일로 보내드렸습니다. (스팸함도 확인해 주세요)<br><br><a href="https://smartstore.naver.com/choopermarket/products/13628619061" target="_blank" style="display:inline-block;background:#5A1A2A;color:#F5F0E6;padding:14px 28px;border-radius:999px;text-decoration:none;font-weight:600;">🍷 샘플킷 4병 바로 주문하기 (19,600원)</a><br><small>\'추가구성\'에서 원하는 2조합 선택 → 총 4병</small>'
+          : '✓ 신청이 접수되었습니다.<br>1영업일 내 등록하신 이메일로 회신드리겠습니다.';
       }
       // Meta Pixel — 전환(리드) 이벤트
       if (window.fbq) fbq('track', 'Lead', { content_name: formType, content_category: 'b2b_form' });
