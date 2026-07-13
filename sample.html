@@ -37,12 +37,12 @@
   /* 이메일 강조 — 빨간 색연필 동그라미 */
   .email-ring-wrap { position: relative; display: block; }
   .email-ring-wrap > .ring-red {
-    position: absolute; left: -9%; top: -42%;
-    width: 118%; height: 210%;
+    position: absolute; left: -9%; top: -8%;
+    width: 118%; height: 245%;
     overflow: visible; pointer-events: none; z-index: 2;
   }
   .email-ring-wrap > .ring-red path {
-    fill: none; stroke: #E03131; stroke-width: 3.5;
+    fill: none; stroke: #F08C00; stroke-width: 4;
     stroke-linecap: round; stroke-linejoin: round;
     vector-effect: non-scaling-stroke;
     stroke-dasharray: 820; stroke-dashoffset: 820;
@@ -79,8 +79,8 @@
       </div>
       <div class="field-row">
         <div class="field">
+          <label>이메일 <span class="req">*</span></label>
           <div class="email-ring-wrap">
-            <label>이메일 <span class="req">*</span></label>
             <input type="email" name="email" required />
             <svg class="ring-red" viewBox="0 0 240 100" preserveAspectRatio="none" aria-hidden="true"><path d="M40,22 C95,8 165,8 205,26 C232,38 224,66 180,78 C120,93 55,90 28,68 C10,53 18,30 55,18 C90,8 150,9 198,21"/></svg>
           </div>
