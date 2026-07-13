@@ -35,10 +35,10 @@
   }
 
   /* 이메일 강조 — 빨간 색연필 동그라미 */
-  .email-ring-wrap { position: relative; display: block; }
+  .email-ring-wrap { position: relative; }
   .email-ring-wrap > .ring-red {
-    position: absolute; left: -9%; top: -8%;
-    width: 118%; height: 245%;
+    position: absolute; left: -8%; top: -14%;
+    width: 116%; height: 128%;
     overflow: visible; pointer-events: none; z-index: 2;
   }
   .email-ring-wrap > .ring-red path {
@@ -78,13 +78,11 @@
         </div>
       </div>
       <div class="field-row">
-        <div class="field">
+        <div class="field email-ring-wrap">
           <label>이메일 <span class="req">*</span></label>
-          <div class="email-ring-wrap">
-            <input type="email" name="email" required />
-            <svg class="ring-red" viewBox="0 0 240 100" preserveAspectRatio="none" aria-hidden="true"><path d="M40,22 C95,8 165,8 205,26 C232,38 224,66 180,78 C120,93 55,90 28,68 C10,53 18,30 55,18 C90,8 150,9 198,21"/></svg>
-          </div>
+          <input type="email" name="email" required />
           <p class="email-note">※ 2일 안에 메일이 안 오면 이메일을 확인해 주세요<br>(스팸함에 들어가 있을 수 있습니다)</p>
+          <svg class="ring-red" viewBox="0 0 240 100" preserveAspectRatio="none" aria-hidden="true"><path d="M40,22 C95,8 165,8 205,26 C232,38 224,66 180,78 C120,93 55,90 28,68 C10,53 18,30 55,18 C90,8 150,9 198,21"/></svg>
         </div>
         <div class="field">
           <label>휴대전화 <span class="req">*</span></label>
